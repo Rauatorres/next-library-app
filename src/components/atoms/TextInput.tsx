@@ -14,6 +14,7 @@ const TextInput = ({ id, type }: TextInputProps) => {
                 w-full
                 text-lg
                 py-3 px-4
+                rounded-xs
                 focus:outline-0 focus:bg-(--focused-input-bg-color)
             "
         />
