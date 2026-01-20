@@ -13,8 +13,15 @@ const InputContainer = ({ children, title }: InputContainerType) => {
     const id = useId();
 
     return (
-        <label htmlFor={id}>
-            <h3>{title}</h3>
+        <label className="
+            block
+            w-full
+            mb-5
+        " htmlFor={id}>
+            <h3 className="
+                text-lg font-bold
+                mb-3
+            ">{title}</h3>
             {React.cloneElement(children, { id: id })}
         </label>
     );

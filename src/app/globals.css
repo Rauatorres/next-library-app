@@ -5,3 +5,10 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --main-bg-color: rgb(212, 212, 212);
+  --default-input-bg-color: rgb(172, 172, 172);
+  --focused-input-bg-color: rgb(151, 151, 151);
+  --primary-bg-color: rgb(52, 110, 187);
+}

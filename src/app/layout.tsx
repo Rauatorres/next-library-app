@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ptb">
-      <body className="bg-neutral-200">
+      <body className="bg-(--main-bg-color)">
         {children}
       </body>
     </html>

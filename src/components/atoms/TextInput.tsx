@@ -8,7 +8,14 @@ const TextInput = ({ id, type }: TextInputProps) => {
         <input 
             id={id}
             type={ type == undefined ? "text" : type } 
-            className="bg-neutral-400"
+            className="
+                bg-(--default-input-bg-color)
+                block
+                w-full
+                text-lg
+                py-3 px-4
+                focus:outline-0 focus:bg-(--focused-input-bg-color)
+            "
         />
     );
 };

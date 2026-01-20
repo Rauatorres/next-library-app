@@ -6,7 +6,15 @@ type FormContainerProps = {
 
 const FormContainer = ({ children }: FormContainerProps) => {
     return (
-        <Form action={''}>
+        <Form className="
+            bg-white
+            w-[40vw]
+            mx-auto
+            mt-40
+            p-10
+            rounded-md
+            shadow-md
+        " action={''}>
             {children}
         </Form>
     );

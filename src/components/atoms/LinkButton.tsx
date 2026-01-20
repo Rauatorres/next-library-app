@@ -2,11 +2,14 @@ import Link from "next/link"
 
 type LinkButtonProps = {
     text: string;
+    path: string;
 }
 
-const LinkButton = ({ text }: LinkButtonProps) => {
+const LinkButton = ({ text, path }: LinkButtonProps) => {
     return (
-        <Link href={""}>{text}</Link>
+        <Link className="
+            block
+        " href={path}>{text}</Link>
     );
 };
 

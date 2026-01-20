@@ -14,7 +14,7 @@ const LoginForm = () => {
                 <TextInput type="password" />
             </InputContainer>
             <Button type="submit" text="entrar" />
-            <LinkButton text="cadastrar"/>
+            <LinkButton text="cadastrar" path="cadastrar"/>
         </FormContainer>
     );
 };
