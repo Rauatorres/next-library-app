@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import QueryWrapper from "@/src/react-query/QueryWrapper";
 
 
 export const metadata: Metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="ptb">
       <body className="bg-(--main-bg-color)">
-        {children}
+        <QueryWrapper>
+          {children}
+        </QueryWrapper>
       </body>
     </html>
   );
