@@ -2,7 +2,9 @@ import { getCookie } from "../../session/cookieActions";
 
 const CookieTest = async () => {
     return (
-        <h1>{getCookie('name')}</h1>
+        <div>
+            <h1>{getCookie('id')}</h1>
+        </div>
     );
 };
 

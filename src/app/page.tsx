@@ -1,4 +1,4 @@
-import LoginForm from "../features/login/LoginForm";
+import LoginForm from "../features/forms/LoginForm";
 import Page from "../features/page/Page";
 
 export default function Login() {

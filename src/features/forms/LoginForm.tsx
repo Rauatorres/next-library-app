@@ -1,6 +1,5 @@
 'use client'
 
-import { useMutation } from "@tanstack/react-query";
 import { getOneByContent } from "../../api/queries";
 import Button from "../../components/atoms/Button";
 import LinkButton from "../../components/atoms/LinkButton";
@@ -9,34 +8,29 @@ import InputContainer from "../../components/molecules/InputContainer";
 import FormContainer from "../../components/organisms/FormContainer";
 import { useRouter } from "next/navigation";
 import { setCookie } from "../../session/cookieActions";
+import { useState } from "react";
 
 const LoginForm = () => {
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+
     const router = useRouter();
 
-    const mutation = useMutation({ 
-        mutationKey: ['login'],
-        mutationFn: async () => {
-            try{
-                const res = await getOneByContent<{ name: string, password: string }>('user/login', { name: 'teste', password: '123' })
-                await setCookie('id', res.id);
-                await setCookie('name', res.name);
-                router.push('/home');
-            }catch (err){
-
-                console.log(err);
-            }
-        },
-    });
+    async function login(){
+        const res = await getOneByContent<{ name: string, password: string }>('user/login', { name: name, password: password })
+        await setCookie('id', res.id);
+        router.push('/home');
+    }
 
     return (
         <FormContainer>
             <InputContainer title="Usuário">
-                <TextInput />
+                <TextInput onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
             </InputContainer>
             <InputContainer title="Senha">
-                <TextInput type="password" />
+                <TextInput type="password" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
             </InputContainer>
-            <Button type="submit" text="entrar" onclick={() => mutation.mutate()} />
+            <Button type="submit" text="entrar" onclick={async () => await login()} />
             <LinkButton text="cadastrar" path="cadastrar"/>
         </FormContainer>
     );
