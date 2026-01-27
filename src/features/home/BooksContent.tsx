@@ -1,39 +1,22 @@
 'use client'
 
-import { create, getOneById, update } from "@/src/api/queries";
+import { getOneById } from "@/src/api/queries";
 import { getCookie } from "@/src/session/cookieActions";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import BooksList from "./BooksList";
 import Book from "@/src/interfaces/Books";
 import AddBookForm from "../forms/AddBookForm";
+import { useBooksMutations } from "./useBooksMutations";
 
 const BooksContent = () => {
-    const queryClient = useQueryClient();
+    const booksMutations = useBooksMutations();
 
     const { data } = useQuery({
         queryKey: ['books'],
         queryFn: async () => {
             const userid = await getCookie('id');
             return await getOneById<{ name: string, books: Book[] }>('user', userid!);
-        }
-    });
-
-    const addBookMutation = useMutation({
-        mutationFn: async () => {
-            const userid = await getCookie('id');
-            if(userid){
-                const newBook = await create<Book>('book', { name: 'teste2', categories: [] })
-                return await update<{ userId: string, bookId: string }>('user/add/book', { 
-                    userId: userid,
-                    bookId: newBook.data._id
-                 });
-            }else{
-                throw new Error('não foi possível retornar o id do usuário');
-            }
         },
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['books'] });
-        }
     });
 
     return (
@@ -46,7 +29,7 @@ const BooksContent = () => {
                 {<BooksList books={data ? data.books : []} />}
             </ul>
             <div>
-                <AddBookForm addFunction={() => addBookMutation.mutate()}/>
+                <AddBookForm addFunction={ (requestObject) => booksMutations.mutate(requestObject) }/>
             </div>
         </div>
     );
