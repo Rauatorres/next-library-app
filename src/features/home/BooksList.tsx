@@ -14,13 +14,13 @@ const BooksList = ({ books }: BooksListProps) => {
         books.map((book, index) => {
             return (
                 <li key={index}>
-                    <Book name={book.name} removeFunction={() => booksMutations.mutate({
+                    <Book name={book.title} removeFunction={() => booksMutations.mutate({
                         type: 'remove',
                         bookId: book._id,
-                    })} editFunction={(name) => booksMutations.mutate({
+                    })} editFunction={(updatedBook) => booksMutations.mutate({
                         type: 'edit',
                         bookId: book._id,
-                        name: name,
+                        book: updatedBook,
                     })} />
                 </li>
             )

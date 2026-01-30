@@ -1,7 +1,7 @@
-interface Book{
+interface BookType{
     _id?: string;
-    name: string;
-    categories: string[];
+    title: string;
+    categories?: string[];
 }
 
-export default Book
+export default BookType

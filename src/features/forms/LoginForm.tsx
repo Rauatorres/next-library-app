@@ -25,10 +25,10 @@ const LoginForm = () => {
     return (
         <FormContainer>
             <InputContainer title="Usuário">
-                <TextInput onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
+                <TextInput onInput={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} value={name}/>
             </InputContainer>
             <InputContainer title="Senha">
-                <TextInput type="password" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}/>
+                <TextInput type="password" onInput={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} value={password}/>
             </InputContainer>
             <Button type="submit" text="entrar" onclick={async () => await login()} />
             <LinkButton text="cadastrar" path="cadastrar"/>

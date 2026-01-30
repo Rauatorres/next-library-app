@@ -2,7 +2,7 @@ type TextInputProps = {
     id?: string;
     type?: "password";
     onInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    value?: string
+    value: string
 }
 
 const TextInput = ({ id, type, onInput, value }: TextInputProps) => {
