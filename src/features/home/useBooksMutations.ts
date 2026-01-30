@@ -31,6 +31,16 @@ export function useBooksMutations(){
                         }else{
                             throw new Error('não foi possível retornar o id do livro')
                         }
+                    case 'edit':
+                        if(request.bookId != undefined && request.name != undefined){
+                            return await update<{ userId: string, bookId: string, name: string }>(`user/edit/book/`, { 
+                                userId: userid,
+                                bookId: request.bookId,
+                                name: request.name!,
+                            });
+                        }else{
+                            throw new Error('não foi possível retornar o id do livro')
+                        }
                     default:
                         return null;
                 }

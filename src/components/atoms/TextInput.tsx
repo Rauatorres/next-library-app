@@ -2,9 +2,10 @@ type TextInputProps = {
     id?: string;
     type?: "password";
     onInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    value?: string
 }
 
-const TextInput = ({ id, type, onInput }: TextInputProps) => {
+const TextInput = ({ id, type, onInput, value }: TextInputProps) => {
     return (
         <input 
             id={id}
@@ -19,6 +20,7 @@ const TextInput = ({ id, type, onInput }: TextInputProps) => {
                 focus:outline-0 focus:bg-(--focused-input-bg-color)
             "
             onInput={onInput}
+            value={value ? value : ""}
         />
     );
 };

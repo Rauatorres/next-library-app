@@ -1,6 +1,6 @@
 const RemoveButton = ({ onClick }: { onClick?: () => void }) => {
     return (
-        <button onClick={onClick}>-</button>
+        <button onClick={onClick}>remover</button>
     );
 };
 
