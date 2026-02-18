@@ -7,9 +7,17 @@ body {
 }
 
 :root {
-  --main-bg-color: rgb(212, 212, 212);
-  --default-input-bg-color: rgb(172, 172, 172);
-  --focused-input-bg-color: rgb(151, 151, 151);
-  --primary-bg-color: rgb(52, 110, 187);
-  --primary-active-bg-color: rgb(24, 71, 133);
+  --body-bg-color: linear-gradient(#eaeaea, #b4b4b4);
+  --main-box-bg-color: #f5f5f5;
+
+  --form-subtitle-color: #6b6b6b;
+  --text-input-bg-color: #eeeeee;
+  --text-input-focus-bg-color: #d2d2d2;
+  --text-input-border-color: #bcbcbc;
+  --text-input-text-color: #767676;
+  --form-separator-line-color: #d1d1d1;
+  --form-separator-text-color: #747474;
+  --form-primary-button-bg-color: #4592ea;
+  --form-link-button-border-color: #747474;
+  --form-link-button-text-color: #4a4a4a;
 }

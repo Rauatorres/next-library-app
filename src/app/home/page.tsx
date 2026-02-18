@@ -1,13 +1,5 @@
-import BooksContent from "@/src/features/home/BooksContent";
-import Page from "@/src/features/page/Page";
-
 const Home = async () => {
-
-    return (
-        <Page>
-            <BooksContent />
-        </Page>
-    );
+  return <></>;
 };
 
-export default Home
+export default Home;
