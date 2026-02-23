@@ -1,6 +1,10 @@
 import { ReactNode } from "react";
 
-const FormFieldContainer = ({ children }: { children: ReactNode }) => {
+type FormFieldContainerProps = {
+  children: ReactNode;
+};
+
+const FormFieldContainer = ({ children }: FormFieldContainerProps) => {
   return <div>{children}</div>;
 };
 
