@@ -8,7 +8,7 @@ type InputWithIconProps = {
 
 const InputWithIcon = ({ children, icon: Icon }: InputWithIconProps) => {
   return (
-    <div className="relative">
+    <div className="relative [&_input]:pr-10">
       {children}
       <Icon
         className="

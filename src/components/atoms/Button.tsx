@@ -1,12 +1,20 @@
+"use client";
+
 type ButtonProps = {
   text: string;
+  type?: "button" | "submit";
   color?: "primary" | "link";
   size?: "full";
   font?: "md";
+  onClick?: () => void;
 };
 
-const Button = ({ text, color, size, font }: ButtonProps) => {
+const Button = ({ text, type, color, size, font, onClick }: ButtonProps) => {
   let style: string = "";
+
+  if (type == undefined) {
+    type = "button";
+  }
 
   switch (color) {
     case "primary":
@@ -30,7 +38,11 @@ const Button = ({ text, color, size, font }: ButtonProps) => {
   }
 
   return (
-    <button className={` cursor-pointer rounded-xl block px-2  ${style} `}>
+    <button
+      className={` cursor-pointer rounded-xl block px-2  ${style} `}
+      type={type}
+      onClick={() => (onClick != undefined ? onClick() : 0)}
+    >
       {text}
     </button>
   );

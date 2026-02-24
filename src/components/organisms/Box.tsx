@@ -11,10 +11,10 @@ const Box = ({ children, type }: BoxProps) => {
     case "login-form":
       style = `
         w-[28rem]
-        mx-auto my-[4rem]
+        mx-auto my-20
         shadow-xl
         px-[3.5rem] py-[5rem]
-        space-y-15
+        space-y-12
       `;
       break;
     default:

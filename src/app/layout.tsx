@@ -12,7 +12,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ptb">
-      <body className="bg-(image:--body-bg-color) h-screen">{children}</body>
+      <body className="bg-(image:--body-bg-color) min-h-screen">
+        {children}
+      </body>
     </html>
   );
 }

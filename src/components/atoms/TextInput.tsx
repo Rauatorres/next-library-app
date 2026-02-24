@@ -1,7 +1,8 @@
 type TextInputProps = {
   type?: "text" | "password";
   placeholder?: string;
-  marginY?: "md";
+  marginY?: "sm" | "md";
+  id?: string;
 };
 
 const TextInput = ({ type, placeholder, marginY }: TextInputProps) => {
@@ -12,6 +13,9 @@ const TextInput = ({ type, placeholder, marginY }: TextInputProps) => {
   }
 
   switch (marginY) {
+    case "sm":
+      style += "my-3";
+      break;
     case "md":
       style += " my-7 ";
       break;
@@ -26,7 +30,7 @@ const TextInput = ({ type, placeholder, marginY }: TextInputProps) => {
     w-full
     block
     text-xs text-(--text-input-text-color)
-    py-3 px-5 pr-10
+    py-3 px-5
     rounded-xl
     focus:outline-none focus:ring-0 focus:bg-(--text-input-focus-bg-color)
     ${style}
@@ -38,3 +42,5 @@ const TextInput = ({ type, placeholder, marginY }: TextInputProps) => {
 };
 
 export default TextInput;
+
+export type { TextInputProps };
